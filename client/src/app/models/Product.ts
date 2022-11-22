@@ -5,7 +5,7 @@ export interface Product {
     description: string;
     price: number;
     pictureUrl: string;
-    type?: string;
+    type?: string; 
     brand: string;
-    quantityInStock?: number;
+    quantityInStock?: number; 
 }
