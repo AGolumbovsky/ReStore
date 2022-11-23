@@ -7,17 +7,24 @@ import Header from "./Header";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  const palletteType = darkMode ? "dark" : "light";
+  const paletteType = darkMode ? "dark" : "light";
   const theme = createTheme({
     palette: {
-      mode: palletteType,
+      mode: paletteType,
+      background: {
+        default: paletteType === "light" ? "#eaeaea" : "#121212",
+      },
     },
   });
+
+  function handleThemeChange() {
+    setDarkMode(!darkMode);
+  }
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header />
+        <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
         <Container>
           <Catalog />
         </Container>
