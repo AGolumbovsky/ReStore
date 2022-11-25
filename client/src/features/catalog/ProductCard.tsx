@@ -8,6 +8,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import { Product } from "../../app/models/Product";
 
 interface Props {
@@ -31,7 +32,11 @@ export default function ProductCard({ product }: Props) {
       />
       <CardMedia
         // component="img" // !!! THIS SHIT BREAKS bgsize: "contain" sooka blyat
-        sx={{ height: 140, backgroundSize: "contain", bgcolor: "primary.light" }}
+        sx={{
+          height: 140,
+          backgroundSize: "contain",
+          bgcolor: "primary.light",
+        }}
         image={product.pictureUrl}
         title={product.name}
       />
@@ -44,8 +49,10 @@ export default function ProductCard({ product }: Props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Suck balls</Button>
+        <Button component={Link} to={`/catalog/${product.id}`} size="small">
+          View
+        </Button>
       </CardActions>
     </Card>
   );
